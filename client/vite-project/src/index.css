@@ -6,9 +6,25 @@ body{
   color: white;
   background-color: #222;
 }
+.flexure{
+  display: flex;
+  gap: 8px;
+}
+
+.flexure button{
+  padding: 8px;
+}
+.topics {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+}
+
 img{
-  height: 300px;
-  width: 300px;
+  width: 300px; /* Set your desired width */
+  height: 200px; /* Set your desired height */
+  object-fit: cover;
+  object-position: center;
 }
 
 main{
@@ -23,7 +39,8 @@ header{
   align-items: center;
   padding: 10px 20px;
   background-color: white;
-  color: #333;
+  color: #555;
+  font-weight: bolder;
   margin-bottom: 60px;
   width: 100%;
   border-radius: 10px;;
@@ -37,7 +54,7 @@ header a {
 }
 
 header a.logo{
-  font-weight: bolder;
+  font-weight: bold;
   text-decoration: none;
   color: #333;
 }
@@ -78,11 +95,46 @@ p.info a.author{
   color: #fee;
 }
 
-div.grid{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+
+
+.grid, .category{
+  display: grid;
+
+  grid-template-columns: auto auto auto; 
+  grid-gap: 1px;
+
 }
+
+.category h2 {
+  margin-bottom: 16px;
+}
+
+.category a{
+  text-decoration: none;
+  color: #FFF;
+}
+
+.category-info {
+  margin-top: -0.5rem;
+}
+
+.buttons{
+  display: flex;
+  gap: 8px;
+  margin-bottom: 3rem;
+  color: red;
+  
+}
+.buttons button{
+  background-color: #fff;
+}
+
+.buttons a {
+  text-decoration: none;
+}
+
+
+
 @media screen and (max-width: 768px){
   div.grid{
     flex-direction: column;
@@ -113,7 +165,15 @@ button{
   padding: 10px 0;
   cursor: pointer;
 }
+.buttons a{
+  color: black;
+}
 
+
+.buttons button:hover{
+  background-color: blue;
+  color: white;
+}
 form.login h1, form.register h1{
   text-align: center;
 }
@@ -170,3 +230,60 @@ div.post-page a.edit-btn{
 a svg{
   height:20px;
 }
+
+
+
+footer{
+  background: black;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 4rem;
+  border-radius: 5px;
+
+}
+
+footer span{
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: 10px;
+}
+
+footer .author{
+  color: #fff;
+}
+
+.footer-socials{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin: 10px;
+  color: white;
+}
+
+.footers-socials a{
+  width: 35px;
+  height: 35px;
+  color: #454545;
+  border: 1.5px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-socials a:hover{
+  color: crimson;
+  border-color: crimson;
+  transition: all 0.3s ease;
+}
+

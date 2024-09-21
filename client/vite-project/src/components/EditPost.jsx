@@ -8,6 +8,7 @@ const EditPost = () => {
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
+    const [category, setCategory] = useState('');
     const [files, setFiles] = useState('');
     //const [cover, setCover] = useState('')
     const [redirect, setRedirect] = useState(false);
@@ -28,6 +29,7 @@ const EditPost = () => {
         const data = new FormData();
         data.set('title', title);
         data.set('summary', summary);
+        data.set('category', category);
         data.set('content', content);
         data.set('id', id);
 
@@ -54,6 +56,12 @@ const EditPost = () => {
                    placeholder={"title"}
                    value={title}
                    onChange = {ev => setTitle(ev.target.value)}/>
+            
+            <input type="text"
+                   placeholder={"category"} 
+                   value={category}
+                   onChange={ ev => setCategory(ev.target.value)}
+                   />
                    
             <input type="summary" 
                    placeholder={"summary"}

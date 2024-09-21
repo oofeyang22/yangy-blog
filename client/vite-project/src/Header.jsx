@@ -32,12 +32,25 @@ const Header = () => {
         <nav>
           {username && (
             <>
+               {/*<div className='topics'>
+                    <li><Link to="/category/all">All Posts</Link></li>
+                    <li><Link to="/category/javascript">JavaScript</Link></li>
+                    <li><Link to="/category/python">Python</Link></li>
+                    <li><Link to="/category/react">React</Link></li>
+                </div>
+*/}
               <Link to='/create'>Create New Post</Link>
               <a onClick={logout}>Logout</a>
             </>
           )}
           {!username && (
             <>
+                {/*<div className='topics'>
+                    <li><Link to="/category/all">All Posts</Link></li>
+                    <li><Link to="/category/javascript">JavaScript</Link></li>
+                    <li><Link to="/category/python">Python</Link></li>
+                    <li><Link to="/category/react">React</Link></li>
+                </div>*/}
               <Link to="/login">Login</Link>
               <Link to="/register">Register</Link>
             </>

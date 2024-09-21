@@ -8,6 +8,7 @@ const CreatePost = () => {
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
+    const [category, setCategory] = useState('');
     const [redirect, setRedirect] = useState(false);
     const navigate = useNavigate();
 
@@ -17,6 +18,7 @@ const CreatePost = () => {
         data.set('title', title);
         data.set('summary', summary);
         data.set('content', content);
+        data.set('category', category);
         data.set('file', files[0]);
         //console.log(files, files[0]);
         
@@ -44,6 +46,13 @@ const CreatePost = () => {
                    placeholder={"title"}
                    value={title}
                    onChange = {ev => setTitle(ev.target.value)}/>
+
+            
+            <input type="text"
+                   placeholder={"category"} 
+                   value={category}
+                   onChange={ ev => setCategory(ev.target.value)}
+                   />
                    
             <input type="summary" 
                    placeholder={"summary"}

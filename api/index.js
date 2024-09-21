@@ -78,13 +78,14 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
     const { token } = req.cookies;
     jwt.verify(token, secretKey, {}, async (err, info) => {
         if (err) throw err;
-        const {title, summary, content} = req.body;
+        const {title, summary, content, category} = req.body;
 
         const post = await Post.create({
             title,
             summary,
             content,
             cover: newPath,
+            category,
             author: info.id
         })
         res.json(post);
@@ -142,7 +143,22 @@ app.get('/post/:id', async (req, res) => {
                             .populate('author', ['username']);
     res.json(post);
     //res.json(req.params)
-})
+});
+
+app.get('/post/category/:category', async (req, res) => {
+    const { category } = req.params;
+    //const { category } = req.query;
+    try {
+        const posts = await Post.find({ category })
+            .populate('author', ['username'])
+            .sort({ createdAt: -1 })
+            .limit(20);
+        res.json(posts);
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching posts by category' });
+    }
+});
+
 app.listen(4000);
 //
 
