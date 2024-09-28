@@ -41,6 +41,7 @@ export default PostsByCategory;*/
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import {formatISO9075} from 'date-fns';
 
 const PostsByCategory = () => {
     const { category } = useParams();
@@ -85,8 +86,13 @@ const PostsByCategory = () => {
                         <img src={'http://localhost:4000/'+post.cover} alt="none"/>
                       </div>
                       <div className='category-info'>
+ 
                         <h3>{post.title}</h3>
-                        <p>Author: {post.author?.username}</p>
+                        <div className='category-author'>
+                          <p className='writer'>{post.author?.username}</p>
+                          <time>{formatISO9075(new Date(post.createdAt))}</time>
+                        </div>
+
                       </div>
 
                     </Link>

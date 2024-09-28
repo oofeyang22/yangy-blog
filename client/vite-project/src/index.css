@@ -56,7 +56,7 @@ header a {
 header a.logo{
   font-weight: bold;
   text-decoration: none;
-  color: #333;
+  color: purple;
 }
 
 header nav{
@@ -88,14 +88,27 @@ p.info{
   color: #fee;
   font-size: 0.7rem;
   display: flex;
+
+  align-items: center;
   gap: 10px;
 }
 
 p.info a.author{
   color: #fee;
+  font-size: 16px;
+  font-weight: bold;
 }
 
+.category-author{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 
+.category-author .writer{
+  font-size: 18px;
+  font-weight: bold;
+}
 
 .grid, .category{
   display: grid;
@@ -122,23 +135,28 @@ p.info a.author{
   display: flex;
   gap: 8px;
   margin-bottom: 3rem;
-  color: red;
   
 }
 .buttons button{
   background-color: #fff;
+  color: black;
 }
 
-.buttons a {
+.buttons button a {
   text-decoration: none;
+  color: inherit;
 }
 
 
 
 @media screen and (max-width: 768px){
   div.grid{
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
 }
 form.login, form.register{
   max-width: 400px;
@@ -165,15 +183,13 @@ button{
   padding: 10px 0;
   cursor: pointer;
 }
-.buttons a{
-  color: black;
-}
 
 
 .buttons button:hover{
   background-color: blue;
   color: white;
 }
+
 form.login h1, form.register h1{
   text-align: center;
 }
